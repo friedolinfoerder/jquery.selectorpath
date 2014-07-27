@@ -1,0 +1,24 @@
+{
+  "name": "jquery.selectorpath",
+  "main": "jquery.selectorpath.js",
+  "version": "0.1.0",
+  "homepage": "https://github.com/friedolinfoerder/jquery.selectorpath",
+  "authors": [
+    "Friedolin Förder"
+  ],
+  "description": "Get a distinct path to an jquery element",
+  "keywords": [
+    "jquery",
+    "contains",
+    "text",
+    "plugin"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
