@@ -20,12 +20,13 @@ jQuery.fn.selectorPath = function() {
             break;
         }
 
-        var nodeName = $current[0].nodeName.toLowerCase(),
-            index = $current.index(nodeName);
+        var $parent = $current.parent(),
+            nodeName = $current[0].nodeName.toLowerCase(),
+            index = $parent.children(nodeName).index($current);
 
         path.push(nodeName + ':eq(' + index + ')');
 
-        $current = $current.parent();
+        $current = $parent;
     }
 
     return path.reverse().join(' > ');
