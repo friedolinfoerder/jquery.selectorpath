@@ -2,14 +2,31 @@ jQuery.fn.selectorPath = function() {
     var path = [],
         $current = this;
 
-    while(!$current.is('body')) {
-        var index = $current.index();
+    while(true) {        
+        // if it's not defined stop
+        if(!$current.length) {
+            break;
+        }
 
-        path.push(':eq(' + index + ')');
+        // if it's the body add it to the path and stop
+        if($current.is('body')) {
+            path.push('body');
+            break;
+        }
+        // if the id is defined stop the path
+        var id = $current.attr('id');
+        if(id) {
+            path.push('#' + id);
+            break;
+        }
+
+        var nodeName = $current[0].nodeName.toLowerCase(),
+            index = $current.index(nodeName);
+
+        path.push(nodeName + ':eq(' + index + ')');
 
         $current = $current.parent();
     }
-    path.push('body');
 
     return path.reverse().join(' > ');
 };
